@@ -10,10 +10,7 @@
       height: 800px;
       border: 1px solid lightgray;
     }
-     #config {
-      float:left;
-      width: 400px;
-      height: 600px;
+     
     }
   </style> 
 
@@ -163,11 +160,7 @@
     edges: connections
   };
   var options = {physics:false,
-    configure:function (option, path) {
-      if (path.indexOf('smooth') !== -1 || option === 'smooth') {
-        return true;
-      }
-      return false;
+
     },
    
     edges: {
