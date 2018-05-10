@@ -6,7 +6,7 @@
 
   <style type="text/css">
     #mynetwork {
-      width: 1200px;
+      width: 1600px;
       height: 800px;
       border: 1px solid lightgray;
     }
@@ -159,9 +159,7 @@
     nodes: sample_data,
     edges: connections
   };
-  var options = {physics:false,
-
-    },
+  var options = {physics:false    },
    
     edges: {
           smooth: {
@@ -170,6 +168,7 @@
         }
         }
         }
+        
   var network = new vis.Network(container, data, options);
 
     
