@@ -159,9 +159,10 @@
     nodes: sample_data,
     edges: connections
   };
-  var options = {physics:false    },
+  var options = {
+  physics:false ,
    
-    edges: {
+  edges: {
           smooth: {
           type: 'discrete',
           roundness: 1
@@ -169,7 +170,8 @@
         }
         }
         
-  var network = new vis.Network(container, data, options);
+        
+  var network = new vis.Network(container, data, options)
 
     
   
