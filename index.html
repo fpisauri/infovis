@@ -1,1 +1,185 @@
-<h1> Hola Mundo </h1>
+<!doctype html>
+<meta charset="utf-8">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #mynetwork {
+      width: 800px;
+      height: 800px;
+      border: 1px solid lightgray;
+    }
+     #config {
+      float:left;
+      width: 400px;
+      height: 600px;
+    }
+  </style> 
+
+  <div id="mynetwork"></div>
+
+<script>
+  var sample_data = new vis.DataSet(
+[{"id":234164,"label":"Ramiro Gault","size":8, "shape":"circle" },
+{"id":696047,"label":"Jose Ringwald","size":18, "shape":"circle" },
+{"id":969089,"label":"Tobi Gatlin","size":10, "shape":"circle" },
+{"id":387200,"label":"Augusta Sharp","size":14, "shape":"circle" },
+{"id":728286,"label":"Kerstin Belveal","size":37, "shape":"circle" },
+{"id":1039322,"label":"Dylan Ballard","size":11, "shape":"circle" },
+{"id":1847246,"label":"Rosalia Larroque","size":37, "shape":"circle" },
+{"id":1886447,"label":"Julie Tierno","size":9, "shape":"circle" },
+{"id":28520,"label":"Refugio Orrantia","size":6, "shape":"circle" },
+{"id":857138,"label":"Richard Fox","size":23, "shape":"circle" },
+{"id":1023940,"label":"Patrick Lane","size":9, "shape":"circle" },
+{"id":1108217,"label":"Lindsy Henion","size":30, "shape":"circle" },
+{"id":1642962,"label":"Glen Grant","size":12, "shape":"circle" },
+{"id":387676,"label":"May Burton","size":9, "shape":"circle" },
+{"id":51780,"label":"Melita Scarpaci","size":4, "shape":"circle" },
+{"id":1690582,"label":"Meryl Pastuch","size":22, "shape":"circle" },
+{"id":1663285,"label":"Sara Ballard","size":7, "shape":"circle" },
+{"id":505444,"label":"Alex Hall","size":4, "shape":"circle" },
+{"id":623027,"label":"Lizbeth Jindra","size":2, "shape":"circle" },
+{"id":2038003,"label":"Jenice Savaria","size":2, "shape":"circle" }]
+);
+
+  var connections = new vis.DataSet(
+[{"from":28520,"to":696047,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":28520,"to":969089,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":28520,"to":1886447,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":51780,"to":1039322,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":51780,"to":1039322,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":234164,"to":28520,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":234164,"to":696047,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":234164,"to":696047,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":234164,"to":728286,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":51780,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":728286,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":728286,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387200,"to":1039322,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387200,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":1690582,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":1847246,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387200,"to":1886447,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387676,"to":857138,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387676,"to":1023940,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":387676,"to":1023940,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387676,"to":1642962,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":387676,"to":1663285,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":505444,"to":1642962,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":505444,"to":1886447,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":623027,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":28520,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":696047,"to":234164,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":696047,"to":234164,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":728286,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":696047,"to":728286,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":969089,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":696047,"to":969089,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":1642962,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":696047,"to":1886447,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":728286,"to":234164,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":728286,"to":387200,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":728286,"to":387200,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":728286,"to":696047,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":728286,"to":696047,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":728286,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":4},
+{"from":728286,"to":1847246,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":7},
+{"from":728286,"to":1847246,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":2},
+{"from":857138,"to":387676,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":857138,"to":728286,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":2},
+{"from":857138,"to":728286,"label":"Meeting","arrows":"to",color:{color:'#FFFF00'},"value":1},
+{"from":857138,"to":969089,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":857138,"to":1023940,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":857138,"to":1023940,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":857138,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":2},
+{"from":857138,"to":1642962,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":857138,"to":1690582,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":2},
+{"from":857138,"to":1690582,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":857138,"to":1690582,"label":"Meeting","arrows":"to",color:{color:'#FFFF00'},"value":1},
+{"from":857138,"to":1847246,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":857138,"to":1886447,"label":"Meeting","arrows":"to",color:{color:'#FFFF00'},"value":1},
+{"from":969089,"to":28520,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":969089,"to":234164,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":969089,"to":696047,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":969089,"to":857138,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":969089,"to":1886447,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1023940,"to":387676,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1023940,"to":857138,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1023940,"to":1642962,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1023940,"to":1663285,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1039322,"to":387200,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1039322,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1039322,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1039322,"to":1690582,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1039322,"to":1690582,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1108217,"to":51780,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1108217,"to":387200,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":2},
+{"from":1108217,"to":623027,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1108217,"to":728286,"label":"Meeting","arrows":"to",color:{color:'#FFFF00'},"value":1},
+{"from":1108217,"to":857138,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1108217,"to":1039322,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1108217,"to":1039322,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1108217,"to":1663285,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1108217,"to":1690582,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1108217,"to":1847246,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1108217,"to":1847246,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1642962,"to":387676,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1642962,"to":505444,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1642962,"to":696047,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1642962,"to":857138,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1642962,"to":1023940,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1663285,"to":387676,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1663285,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1663285,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1663285,"to":1642962,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1690582,"to":857138,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1690582,"to":1039322,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1690582,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":2},
+{"from":1690582,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1690582,"to":1642962,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1690582,"to":1847246,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":2},
+{"from":1690582,"to":1847246,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":3},
+{"from":1690582,"to":1847246,"label":"Meeting","arrows":"to",color:{color:'#FFFF00'},"value":1},
+{"from":1847246,"to":387200,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1847246,"to":728286,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":8},
+{"from":1847246,"to":728286,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":2},
+{"from":1847246,"to":857138,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1847246,"to":1108217,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1847246,"to":1108217,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1847246,"to":1690582,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1847246,"to":1690582,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1847246,"to":2038003,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1847246,"to":2038003,"label":"Purchase","arrows":"to",color:{color:'#0000FF'},"value":1},
+{"from":1886447,"to":505444,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1},
+{"from":1886447,"to":696047,"label":"Email","arrows":"to",color:{color:'#00FF00'},"value":1},
+{"from":1886447,"to":969089,"label":"Call","arrows":"to",color:{color:'#FF0000'},"value":1}]
+);
+  
+ var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: sample_data,
+    edges: connections
+  };
+  var options = {physics:false,
+    configure:function (option, path) {
+      if (path.indexOf('smooth') !== -1 || option === 'smooth') {
+        return true;
+      }
+      return false;
+    },
+   
+    edges: {
+          smooth: {
+          type: 'discrete',
+          roundness: 1
+        }
+        }
+        }
+  var network = new vis.Network(container, data, options);
+
+    
+  
+ 
+</script>
